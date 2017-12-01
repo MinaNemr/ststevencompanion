@@ -15,7 +15,7 @@ angular.module('yapp')
     }else if($location.absUrl().includes("dbrtest")){
        $window.localStorage.setItem("base_url","https://dbrtest.herokuapp.com");
    }else{
-      $window.localStorage.setItem("base_url","https://dbr.herokuapp.com");
+      $window.localStorage.setItem("base_url","https://ststevencompanion.herokuapp.com");
     }
     
     if(localStorage.getItem("user")!= undefined){
