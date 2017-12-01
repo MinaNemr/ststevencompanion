@@ -22,7 +22,7 @@ angular.module('yapp')
         var day = dateNow.getDate();
         console.log(dateNow);
         var dateNowString = "" + day + month + year
-        if (dateNow>=timeMin && dateNow <= timeMax && $scope.user.prayers.indexOf(dateNowString) == -1) {
+        if (dateNow>=timeMin && dateNow <= timeMax ) {
              $scope.displayBox = true;
             }
         $scope.blaz = function (){
