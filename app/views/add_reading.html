@@ -1,0 +1,124 @@
+<div>
+	<div ng-include="'menu.html'"></div>
+	<!-- <snap-dragger></snap-dragger> -->
+	<snap-content snap-opt-tap-to-close="false">
+
+		<!-- <a href="" snap-toggle="left" ng-click="menuOpen = !menuOpen">
+			<span class="menutoggle">
+				<i ng-hide="menuOpen" class="fa fa-bars fa-2x" ></i>
+				<i ng-show="menuOpen" class="fa fa-times fa-2x" ></i>
+			</span>
+		</a> -->
+
+		<div class="fr">
+			<h2>D.B.R<small> Daily Bible Reading</small></h2>
+		</div>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Add a Reading</h1>
+				<style>
+				.arabic{
+					text-align: right;
+					direction:rtl;
+				}
+				.form-control{
+					font-size: large;
+				}
+				</style>
+				<form class="form-horizontal">
+					<fieldset>
+					
+					<!-- Form Name -->
+					<legend></legend>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="number">Reading Number</label>  
+					  <div class="col-md-4">
+					  <input id="number" name="number" ng-model="reading.number" type="number" placeholder="Reading Number" class="form-control input-md" required="">
+					  <span class="help-block">Last reading was number</span>  
+					  </div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="shahed">الشاهد</label>  
+					  <div class="col-md-4">
+					  <input id="shahed" name="shahed" ng-model="reading.shahed" type="text" placeholder="El Shahed" class="form-control input-md arabic" required="">
+						
+					  </div>
+					</div>
+					
+					<!-- Textarea -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="content">Content</label>
+					  <div class="col-md-4">                     
+						<textarea class="form-control arabic" id="content" name="content" ng-model="reading.content" style="width:500px!important;" rows="10"></textarea>
+					  </div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="sound">Sound Link</label>  
+					  <div class="col-md-4">
+					  <input id="sound" name="sound" ng-model="reading.sound" type="text" placeholder="Sound Link" class="form-control input-md">
+						
+					  </div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="question">Questions</label>  
+					  <div class="col-md-5">
+						<textarea class="form-control arabic" id="question" name="question" ng-model="reading.questions" rows="4" placeholder="each quesion in a separate line"></textarea>
+					  </div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="answer">Answers</label>  
+					  <div class="col-md-4">
+						<textarea class="form-control arabic" id="answer" name="answer" ng-model="reading.answers" rows="4" placeholder="each answer in a separate line"></textarea>
+						
+					  </div>
+					</div>
+					
+					<!-- Textarea -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="choices">choices</label>
+					  <div class="col-md-4">                     
+						<textarea class="form-control arabic" id="choices" name="choices" ng-model="reading.choices" rows="5" placeholder="Choices(including right answer), each choice in a separate line and between each question add an empty line"></textarea>
+					  </div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="score">Scores</label>  
+					  <div class="col-md-4">
+						<textarea class="form-control arabic"  id="score" name="score" ng-model="reading.scores" rows="4" placeholder="each answer in a separate line"></textarea>
+					  </div>
+					</div>
+					
+					<!-- Button -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="submit">Add Reading?</label>
+					  <div class="col-md-4">
+						<button id="submit" name="submit" ng-click="add_reading(reading)" class="btn btn-success">Submit</button>
+					  </div>
+					</div>
+					
+					</fieldset>
+					</form>
+					
+
+				<div class="row text-center" style="padding-top:20px">
+					<h2>
+						<a ui-sref="home" style="font-size: -webkit-xxx-large;font-weight: 600;" class="btn btn-primary btn-lg btn-white">Home <span class="glyphicon glyphicon-home"></span></a>
+					</h2>
+				</div>
+
+
+			</div>
+		</div>
+	</snap-content>
+</div>

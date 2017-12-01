@@ -1,0 +1,162 @@
+<div>
+	<div ng-include="'menu.html'"></div>
+	<!-- <snap-dragger></snap-dragger> -->
+	<snap-content snap-opt-tap-to-close="false">
+
+		<!-- <a href="" snap-toggle="left" ng-click="menuOpen = !menuOpen">
+			<span class="menutoggle">
+				<i ng-hide="menuOpen" class="fa fa-bars fa-2x" ></i>
+				<i ng-show="menuOpen" class="fa fa-times fa-2x" ></i>
+			</span>
+		</a> -->
+		<div class="fr">
+			<h2>Saint Steven <small> Companion</small></h2>
+		</div>
+
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Welcome {{user.name}}!</h1>
+
+				<md-content layout-padding ng-show="displayBox" style="text-align: right;">
+					<h2>من فضلك ادخل ممارساتك الروحية الخاصة باليوم</h2>
+					<form name="projectForm">
+						<md-input-container class="md-block">
+							
+							
+							<md-checkbox name="tos" ng-model="sleep"  ng-value="mina">
+								صلاة قبل النوم
+							</md-checkbox>
+							<md-checkbox name="tos" ng-model="studying"  ng-value="mina">
+								صلاة قبل المذاكرة
+							</md-checkbox>
+							<md-checkbox name="tos" ng-model="eating"  ng-value="mina">
+								صلاة قبل الأكل
+							</md-checkbox>
+							<md-checkbox name="tos" ng-model="wakeup"  ng-value="mina">
+								صلاة بعد الاستيقاظ
+							</md-checkbox>
+							<md-checkbox name="tos" ng-model="agpyaII"  ng-value="mina">
+								صلاة من الأجبية 2 (تاسعة او غروب او نوم)
+							</md-checkbox>
+
+							<md-checkbox name="tos" ng-model="agpyaI"  ng-value="mina">
+								صلاة من الاجبية 1 (باكر او ثالثة او سادسة) 
+							</md-checkbox>
+							
+							<md-checkbox name="tos" ng-model="mass"  ng-value="mina">
+								قداس و تناول
+							</md-checkbox>
+							<md-checkbox name="tos" ng-model="bible"  ng-value="mina">
+								قراءة كتاب مقدس يومية
+							</md-checkbox>
+						</md-input-container>
+						<div>
+							<md-button type="submit" ng-click="blaz()" style="background-color: green; color: white; font-size: 25px;">ادخال</md-button>
+						</div>
+					</form>
+				</md-content>
+				<div class="row">
+					<center>
+						<h2 style="font-weight: 700;">
+							Your Score: {{user.score}} Points
+						</h2>
+					</center>
+				</div>
+
+				<div class="clear"></div>
+
+
+
+
+				<h2 ng-show="{{user.admin}}">
+					<a ui-sref="reading" style="font-size: -webkit-xxx-large;font-weight: 600;" class="btn btn-primary btn-lg btn-white">Start Today's Reading? <span class="glyphicon glyphicon-book"></span></a>
+				</h2>
+			</div>
+			<center>
+				
+				<div class="row text-center" ng-show="{{user.admin}}" style="padding-top:20px;display: -webkit-inline-box;">
+
+					<div class="text-center pd" style="padding-top:20px">
+						<a ui-sref="userStats({id:user._id})" class="btn btn-primary btn-lg btn-white">Statistics <i class="glyphicon glyphicon-stats"></i></a>
+					</div>	
+
+					<div class="text-center pd" style="padding-top:20px">
+						<a ui-sref="history" class="btn btn-primary btn-lg btn-white">History <i class="glyphicon glyphicon-time"></i></a>
+					</div>
+
+					<div class="text-center pd" style="padding-top:20px">
+						<a ui-sref="trophies" class="btn btn-primary btn-lg btn-white">Trophies <i class="glyphicon glyphicon-tower"></i></a>
+					</div>
+
+					<div class="text-center pd" style="padding-top:20px">
+						<a ui-sref="gifts" class="btn btn-primary btn-lg btn-white">Gifts <i class="glyphicon glyphicon-gift"></i></a>
+					</div>
+
+				</div>
+
+
+
+				<div class="container">
+					<div class="row"></div>
+					<div class="col-md-12">
+						<h3>Top 5</h3>
+						<table class="table" >
+							<thead>
+								<tr>
+									<th>Rank</th>
+									<th>Name</th>
+									<th>Score</th>
+									<th>Category</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="kid in topKids  track by $index">
+									<th>{{$index+1}}</th>
+									<th>{{kid.name}}</th>
+									<th>{{kid.score}}</th>
+									<th>{{kid.rank}}</th>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+					
+					
+				</div>
+
+				<!-- bottom buttons -->
+				<center>
+					<div class="row text-center" style="padding-top:20px;display: -webkit-inline-box;" ng-show="user.admin">
+						<div class="text-center pd" >
+							<a ui-sref="adminStats" class="btn btn-primary btn-lg btn-white ">Admin Statistics</a>
+						</div>
+						<div class="text-center pd"  >
+							<a ui-sref="readingManager" class="btn btn-primary btn-lg btn-white ">Reading Manager</a>
+						</div>
+						<div class="text-center pd"  >
+							<a ui-sref="view_kids" class="btn btn-primary btn-lg btn-white">My boys</a>
+						</div>
+						<div class="text-center pd"  >
+							<p>
+								<a ui-sref="add_kids" class="btn btn-primary btn-lg btn-white ">Add Kids</a>
+							</p>
+						</div>
+					</div>
+					<style>
+					.pd{
+						padding-left: 10px!important;
+					}
+				</style>
+			</center>
+
+			<div class="row text-center" style="padding-top:20px">
+				<p>
+					<a ng-click="logout()" class="btn btn-primary btn-lg btn-white">Logout</a>
+				</p>
+			</div>
+
+
+		</div>
+	</div>
+</snap-content>
+</div>
