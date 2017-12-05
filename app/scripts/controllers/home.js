@@ -39,12 +39,13 @@ angular.module('yapp')
                 if ($scope.mass) {score+=50;}
                  score+=$scope.user.score;
             
-                 $scope.user.prayers.push(dateNowString);
                  console.log($scope.user.prayers);
                  
                     $scope.displayBox=false;
                 $http.post($window.localStorage.getItem("base_url")+"/add_prayers",{"id":$scope.user._id,"points":score,"prayers":$scope.user.prayers}).then(function(response){
                   if (response.status==200) {
+                    
+                 $scope.user.prayers.push(dateNowString);
                     $window.alert('تم ادخال البيانات بنجاح \n سوف يتم تحديث النقاط خلاق 3 دقائق');
                     
                   }

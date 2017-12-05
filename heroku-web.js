@@ -24,7 +24,7 @@ function setCustomCacheControl(res, myPath, stat) {
     } else {
         //for all other files, cache for a long duration,
         //and force cache invalidation using gulp-rev
-        var dur_in_ms = 2 * 24 * 60 * 60 * 1000; //2 days
+        var dur_in_ms =  1000; //2 days
         res.setHeader('Cache-Control', 'public, max-age=' + dur_in_ms);
     }
 }
