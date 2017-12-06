@@ -587,7 +587,6 @@ function add_prayers(user, points, callback) {//get user object and points to ad
     });
 };
 app.post('/add_prayers', function (req, res) {
-
     User.update({"_id":req.body.id},{"score":req.body.points,"prayers":req.body.prayers}).exec(function(err,status){
          if (err) {
             res.send(err);

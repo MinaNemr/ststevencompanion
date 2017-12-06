@@ -15,7 +15,7 @@ angular.module('yapp')
     $scope.level_progressbar_colors=['#1a8ebc','#9c1abc','#f44336','#8bc34a','#ffc107','#00bcd4','#c700d4','#d47f00','#48d400','#aa00d4'];
         $scope.displayBox = false;
         var dateNow = new Date();
-        var timeMin = new Date(dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDate(), 16, 55, 30);
+        var timeMin = new Date(dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDate(), 18, 59, 59);
         var timeMax = new Date(dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDate(), 23, 59, 59);
         var year = dateNow.getFullYear();
         var month = dateNow.getMonth() + 1;
@@ -26,7 +26,9 @@ angular.module('yapp')
              $scope.displayBox = true;
             }
         $scope.blaz = function (){
-           var confirm = $window.confirm('تحذير: لن تستطيع تعديل بيانات اليوم بعد ذلك \n هل انت متاكد من جميع بياناتك؟');
+           var confirm = $window.confirm('تحذير: لن تستطيع تعديل بيانات اليوم بعد ذلك \n هل انت متاكد من جميع بياناتك؟');      
+              $scope.displayBox=false;
+              $window.alert('انتظر حتى يتم اضافه النقاط الخاص بك \n ستظهر بعد قليل رسالة تأكيد');
               if (confirm && $scope.user.prayers.indexOf(dateNowString) == -1 ) {
                 var score = 0;
                 if ($scope.wakeup) {score+=10;}
@@ -35,18 +37,14 @@ angular.module('yapp')
                 if ($scope.sleeping) {score+=10;}
                 if ($scope.agpyaI) {score+=30;}
                 if ($scope.agpyaII) {score+=30;}
-                if ($scope.bible) {score+=30;}
+                if ($scope.bible) {score+=50;}
                 if ($scope.mass) {score+=50;}
                  score+=$scope.user.score;
-            
-                 console.log($scope.user.prayers);
-                 
-                    $scope.displayBox=false;
+              $scope.user.prayers.push(dateNowString);
+                    
                 $http.post($window.localStorage.getItem("base_url")+"/add_prayers",{"id":$scope.user._id,"points":score,"prayers":$scope.user.prayers}).then(function(response){
                   if (response.status==200) {
-                    
-                 $scope.user.prayers.push(dateNowString);
-                    $window.alert('تم ادخال البيانات بنجاح \n سوف يتم تحديث النقاط خلاق 3 دقائق');
+                    $window.alert('You Have been added '+ score + ' points');
                     
                   }
                   else{
