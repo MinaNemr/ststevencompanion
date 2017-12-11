@@ -39,11 +39,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="kid in myKids track by $index">
+						<tr ng-repeat="kid in myKids track by $index ">
 							<th>{{kid.name}}</th>
 							<th>{{kid.username}}</th>
 							<th>{{kid.password}}</th>
-							<th>{{kid.total_score}}</th>
+							<th>{{kid.score}}</th>
 							<th>{{kid.level}}</th>
 							<th>{{kid.reading_dates.length}}</th>
 							<th>{{kid.reading_dates.length==0?'Not Started Yet': subDates(kid.reading_dates[kid.reading_dates.length-1]) }}</th>
