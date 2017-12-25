@@ -34,7 +34,7 @@ angular.module('yapp')
                 if ($scope.wakeup) {score+=10;}
                 if ($scope.eating) {score+=10;}
                 if ($scope.studying) {score+=10;}
-                if ($scope.sleeping) {score+=10;}
+                if ($scope.sleep) {score+=10;}
                 if ($scope.agpyaI) {score+=30;}
                 if ($scope.agpyaII) {score+=30;}
                 if ($scope.bible) {score+=50;}
